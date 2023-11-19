@@ -1,29 +1,119 @@
 # Color-Aware Multi-Style Transfer
 
-Image style transfer is a widely explored technique that manipulates the appearance of a source image, known as the "content" image, to reflect the texture and colors of a target "style" image. While Gram matrix-based optimization has been a popular approach for style transfer, it often lacks consideration for the correlation between colors and styles. This becomes challenging, especially when dealing with target style images that exhibit multiple style types.
+Color-Aware Multi-Style Transfer is an innovative approach to image style transfer, designed to enhance the visual aesthetics of generated images by preserving the style-color correlation. This method allows users to manipulate the appearance of a source image, while maintaining the texture and colors associated with a target style image. Unlike traditional Gram matrix-based optimization, our approach considers the relationship between colors and styles, particularly beneficial when dealing with target style images that exhibit multiple style types.
 
-## Overview
+## Methodology
 
-In this work, we introduce a Color-Aware Multi-Style Transfer method to address the limitations of classic Gram matrix-based optimization. Our approach preserves the style-color correlation between style and generated images, leading to aesthetically pleasing and semantically meaningful results. A notable feature of our method is the ability for users to manually select color associations between the target style and content image, providing enhanced transfer flexibility.
+The heart of our approach lies in the efficient modification introduced to classic Gram matrix-based style transfer optimization. By incorporating color-aware considerations, we achieve superior results that not only reflect the desired style but also maintain the semantic content of the source image. This Color-Aware Multi-Style Transfer method enables users to manually select color associations between the target style and content image, providing a flexible and personalized artistic experience.
 
-## Key Contributions
+## Key Features
 
-- **Color-Aware Optimization:** We propose an efficient modification to the traditional Gram matrix-based style transfer optimization, incorporating color-aware considerations for improved results.
-- **Multi-Style Transfer:** Our method accommodates images with multiple styles, offering a simple yet effective solution for diverse artistic preferences.
-- **User Flexibility:** By allowing manual color associations, users can tailor the style transfer process to achieve their desired artistic outcomes.
+- **Color-Aware Optimization:** Our method introduces a simple yet effective modification to classic Gram matrix-based optimization, focusing on the correlation between colors and styles.
+- **Multi-Style Transfer:** Accommodate images with diverse styles effortlessly, making it a versatile solution for a range of artistic preferences.
+- **User Interaction:** Users can manually select color associations, offering enhanced control over the style transfer process for personalized artistic outcomes.
+  
+### Note : We have manually selected color associations using    SELECT_MATCHES = True  
 
-## Validation and Results
+## Validation and User Study
 
-We validated our Color-Aware Multi-Style Transfer method through qualitative comparisons, including a user study with 30 participants. The results demonstrate the simplicity, ease of implementation, and visually appealing outcomes, especially when dealing with images exhibiting multiple styles.
+We validated our Color-Aware Multi-Style Transfer through qualitative comparisons and conducted study with our original dataset. The results showcase the simplicity, ease of implementation, and visually appealing outcomes, especially when dealing with images that feature multiple styles.
 
-## Source Code
+## Sample of manual selection 
 
-The source code for our method is available on [GitHub](https://github.com/mahmoudnafifi/color-aware-style-transfer).
+![image](https://github.com/Swateya03/Dashtoon_Generative_AI_Assignment_SWATEYA/assets/142562275/b447be54-9358-4b4f-9a37-310ca2cefcb4)
 
-## Getting Started
 
-To get started with our Color-Aware Multi-Style Transfer, please refer to the provided source code and follow the instructions in the repository.
+# Getting Started
 
----
+## Style Transfer Parameters and Configuration
 
-**Note:** This introduction provides a general overview. For detailed information, methodology, and results, please refer to the complete documentation and research paper.
+Configure the style transfer parameters and settings by modifying the following variables in the code:
+
+- `STYLE_IMAGE`: Path to the style image file.
+- `CONTENT_IMAGE`: Path to the content image file.
+
+**Style Transfer Configuration:**
+
+- `SMOOTH`: Boolean, whether to apply smoothing during style transfer.
+- `SHOW_MASKS`: Boolean, whether to display masks during the process.
+- `DEVICE`: Device for computation, automatically set to "cuda" if available, else "cpu".
+- `SELECT_MATCHES`: Boolean, set to True to select color correspondences in palettes.
+- `EPS`: Small value to prevent division by zero.
+- `SIGMA`: Value for sigma in style transfer, typically 0.25 or 0.3.
+- `PALETTE_SIZE`: Size of the color palette.
+- `ADD_BLACK_WHITE`: Boolean, whether to add black and white colors to the palette.
+- `STYLE_LOSS_WEIGHT`: Weight for style loss in the total loss calculation.
+- `CONTENT_LOSS_WEIGHT`: Weight for content loss in the total loss calculation.
+- `COLOR_DISTANCE`: Distance metric for color matching, options: 'chroma_L2', 'L2'.
+- `STYLE_FEATURE_DISTANCE`: Feature distance metric for style, options: 'L2', 'COSINE'.
+- `CONTENT_FEATURE_DISTANCE`: Feature distance metric for content, options: 'L2', 'COSINE'.
+- `OPTIMIZER`: Optimization algorithm, options: 'LBFGS', 'Adam', 'Adagrad'.
+- `LR`: Learning rate for optimization.
+- `ITERATIONS`: Number of iterations for style transfer.
+- `IMAGE_SIZE`: Desired size of the output image.
+
+**Image Size and Depth Layers:**
+
+- `imsize`: Desired size of the output image.
+- `content_layers_default`: List of default layers for content loss computation.
+- `color_aware_layers_default`: List of default layers for color awareness in style transfer.
+
+## Image Processing and Color Manipulation Functions
+
+The code includes various functions for image processing and color manipulation. These functions contribute to the overall style transfer process and can be explored for customization.
+
+## ColorPixels Class for Image Pixel Analysis
+
+The `ColorPixels` class facilitates pixel analysis of an input image, automatically converting it into the `np.float32` format. The class provides methods for extracting pixel values in different color spaces, including RGB and Lab.
+
+## 3D Color Histograms Implementation
+
+The `Hist3D` class is designed for the implementation of 3D color histograms, providing functionality to compute and analyze color distributions in an image.
+
+## CreateMask Module for Style Transfer
+
+The `CreateMask` class is a PyTorch module for generating masks based on a given color palette. This module is used in style transfer to create masks that highlight regions in the input image corresponding to specific colors in the palette.
+
+## Gram Matrix Calculation
+
+The `gram_matrix` function computes the Gram matrix for a given input tensor. In the context of neural style transfer, the Gram matrix is used to capture style information from feature maps.
+
+## Masked Gram Matrix Calculation
+
+The `masked_gram_matrix` function computes a masked Gram matrix for a given input tensor and a set of masks. This function is particularly useful in neural style transfer with masked style representations.
+
+## Content Loss Calculation
+
+The `ContentLoss` class computes the content loss between the input features and a target representation. This loss is commonly used in neural style transfer to ensure that the generated image maintains the content of the original content image.
+
+## Custom Functions for Neural Style Transfer
+
+The code includes custom functions such as cosine similarity calculation and setting requires grad, contributing to the neural style transfer implementation.
+
+## ColorAwareLoss Class for Style Loss Calculation
+
+The `ColorAwareLoss` class is a custom loss module for calculating the style loss in the context of color-aware neural style transfer. It provides a color-aware style loss metric, considering both feature information and color masks.
+
+## Normalization Class for Image Preprocessing in Neural Networks
+
+The `Normalization` class is designed as a module to normalize input images, facilitating their integration into a neural network pipeline. It ensures that input images adhere to a standardized format before being fed into a neural network.
+
+## Style Model and Losses Setup
+
+The `get_style_model_and_losses` function sets up the style transfer model along with content and color-aware style losses. It returns a tuple containing the style transfer model, a list of content losses, and a list of color-aware style losses.
+
+## Style Transfer Execution
+
+Use the `run_style_transfer` function to execute the neural style transfer process. It optimizes the input image to blend the content and style images, considering color-aware style information.
+
+## Image Loader and Preprocessing
+
+This section of the code handles the loading and preprocessing of style and content images. It uses the torchvision library to compose a set of transformations such as resizing and converting to tensors. Additionally, color palettes are generated for both images.
+
+## Output Visualization and Saving
+
+The stylized output image is visualized and saved as 'output.png'. Ensure that plt.ioff() and plt.show() commands are used appropriately to avoid blocking further execution in non-interactive environments.
+
+Feel free to explore and customize the provided code for your specific style transfer needs. For more details, refer to the comments in the source code and documentation.
+
+
