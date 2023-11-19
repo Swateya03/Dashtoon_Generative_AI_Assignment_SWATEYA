@@ -2,6 +2,9 @@
 
 Color-Aware Multi-Style Transfer is an innovative approach to image style transfer, designed to enhance the visual aesthetics of generated images by preserving the style-color correlation. This method allows users to manipulate the appearance of a source image, while maintaining the texture and colors associated with a target style image. Unlike traditional Gram matrix-based optimization, our approach considers the relationship between colors and styles, particularly beneficial when dealing with target style images that exhibit multiple style types.
 
+## Model
+VGG-19: A pre-trained convolutional neural network (CNN) from PyTorch's model zoo. It is used for feature extraction during style transfer.
+
 ## Key Features
 
 - **Color-Aware Optimization:** Our method introduces a simple yet effective modification to classic Gram matrix-based optimization, focusing on the correlation between colors and styles.
