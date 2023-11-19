@@ -2,10 +2,6 @@
 
 Color-Aware Multi-Style Transfer is an innovative approach to image style transfer, designed to enhance the visual aesthetics of generated images by preserving the style-color correlation. This method allows users to manipulate the appearance of a source image, while maintaining the texture and colors associated with a target style image. Unlike traditional Gram matrix-based optimization, our approach considers the relationship between colors and styles, particularly beneficial when dealing with target style images that exhibit multiple style types.
 
-## Methodology
-
-The heart of our approach lies in the efficient modification introduced to classic Gram matrix-based style transfer optimization. By incorporating color-aware considerations, we achieve superior results that not only reflect the desired style but also maintain the semantic content of the source image. This Color-Aware Multi-Style Transfer method enables users to manually select color associations between the target style and content image, providing a flexible and personalized artistic experience.
-
 ## Key Features
 
 - **Color-Aware Optimization:** Our method introduces a simple yet effective modification to classic Gram matrix-based optimization, focusing on the correlation between colors and styles.
@@ -18,9 +14,17 @@ The heart of our approach lies in the efficient modification introduced to class
 
 We validated our Color-Aware Multi-Style Transfer through qualitative comparisons and conducted study with our original dataset. The results showcase the simplicity, ease of implementation, and visually appealing outcomes, especially when dealing with images that feature multiple styles.
 
-## Sample of manual selection 
+## Samples of manual selection done in the assignment
 
-![image](https://github.com/Swateya03/Dashtoon_Generative_AI_Assignment_SWATEYA/assets/142562275/b447be54-9358-4b4f-9a37-310ca2cefcb4)
+![Screenshot (670)](https://github.com/Swateya03/Dashtoon_Generative_AI_Assignment_SWATEYA/assets/142562275/4e5c70ec-1726-41b7-9fb6-2328424a6da7)
+
+![Screenshot (671)](https://github.com/Swateya03/Dashtoon_Generative_AI_Assignment_SWATEYA/assets/142562275/af567765-1c3a-4e8b-bebf-08d1a656a995)
+
+![Screenshot (672)](https://github.com/Swateya03/Dashtoon_Generative_AI_Assignment_SWATEYA/assets/142562275/c27fda5e-056f-4cee-a8e5-1fff0e656f2b)
+
+## Methodology
+
+The heart of our approach lies in the efficient modification introduced to classic Gram matrix-based style transfer optimization. By incorporating color-aware considerations, we achieve superior results that not only reflect the desired style but also maintain the semantic content of the source image. This Color-Aware Multi-Style Transfer method enables users to manually select color associations between the target style and content image, providing a flexible and personalized artistic experience.
 
 
 # Getting Started
