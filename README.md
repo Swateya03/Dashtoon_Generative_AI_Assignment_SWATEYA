@@ -119,8 +119,6 @@ This section of the code handles the loading and preprocessing of style and cont
 
 ## Output Visualization and Saving
 
-The stylized output image is visualized and saved as 'output.png'. Ensure that plt.ioff() and plt.show() commands are used appropriately to avoid blocking further execution in non-interactive environments.
-
-Feel free to explore and customize the provided code for your specific style transfer needs. For more details, refer to the comments in the source code and documentation.
+The stylized output image is visualized and saved as 'output.png'. 
 
 
